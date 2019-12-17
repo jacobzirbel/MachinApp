@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "New Ionic App",
+  "appId": "com.jacob.machinapp",
+  "appName": "MachinApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

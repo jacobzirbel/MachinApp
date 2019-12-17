@@ -1,4 +1,4 @@
-package io.ionic.starter;
+package com.jacob.machinapp;
 
 import android.os.Bundle;
 
