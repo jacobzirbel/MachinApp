@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Listings (click items)
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of list" [routerLink]="['/list', item.id]">
+      <div class="item-name"> {{ item.name }}, ${{item.price}}
+      </div>
+      <div class="item-date" slot="end">
+        {{item.dateAdded}}
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-button start>
+          <ion-back-button defaultHref="/list"></ion-back-button>
+      </ion-button>
+    <ion-title align-items-center>Item Name: {{ loadedItem.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br />
+  <ion-col>
+    <ion-row>
+      Date Added: {{loadedItem.dateAdded}}
+    </ion-row>
+    <ion-row>
+      Added By: {{loadedItem.addedBy}}
+    </ion-row>
+    <br/>
+    <ion-row>
+      Description: {{loadedItem.description}}
+    </ion-row>
+  </ion-col>
+
+  <h1> Price: ${{ loadedItem.price }}</h1>
+</ion-content>

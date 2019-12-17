@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Post</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form (ngSubmit)="addItem()">
+        <ion-item>
+          <ion-label>Title of Post</ion-label>
+          <ion-input type="text" [(ngModel)]="item.name" name="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea [(ngModel)]="item.description" name="description"></ion-textarea>
+        </ion-item>
+        <ion-item>
+            <ion-label>Price</ion-label>
+            <ion-textarea [(ngModel)]="item.price" name="price"></ion-textarea>
+          </ion-item>
+        <ion-button ion-button type="submit" block>Add Item</ion-button>
+        <ion-button (click)="goBack()"> cancel </ion-button>
+      </form>
+</ion-content>

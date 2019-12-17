@@ -2,8 +2,36 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)},
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
+    loadChildren: './home/home.module#HomePageModule'
+  },
+  {
+    path: 'list',
+    children: [
+      {
+        path: '',
+        loadChildren: './list/list.module#ListPageModule'
+      },
+      {
+        path: ':itemId',
+        loadChildren: './list/item-detail/item-detail.module#ItemDetailPageModule'
+      }
+    ]    
+  },
+  {
+    path: 'post',
+    loadChildren: './post/post.module#PostPageModule'
+  },
+  {
+    path: 'post',
+    loadChildren: () => import('./post/post.module').then( m => m.PostPageModule)
+  }
 ];
 
 @NgModule({

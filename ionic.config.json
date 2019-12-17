@@ -1,5 +1,7 @@
 {
-  "name": "MachinApp",
-  "integrations": {},
+  "name": "New Ionic App",
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
