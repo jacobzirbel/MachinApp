@@ -13,7 +13,7 @@ export class ItemService {
         {
             id: '001',
             name: 'First',
-            addedBy: 'Only User',
+            addedBy: 'User1',
             dateAdded: '10/15/2019',
             price: 1,
             description: "first item, added october, one dollar"
@@ -21,7 +21,7 @@ export class ItemService {
         {
             id: '002',
             name: 'Second',
-            addedBy: 'Only User',
+            addedBy: 'User2',
             dateAdded: '11/15/2019',
             price: 2,
             description: "second item, added november, two dollars"
@@ -29,7 +29,7 @@ export class ItemService {
         {
             id: '003',
             name: 'Third',
-            addedBy: 'Only User',
+            addedBy: 'User3',
             dateAdded: '12/15/2019',
             price: 3,
             description: "third item, added december, three dollars"
@@ -48,6 +48,16 @@ export class ItemService {
 
     getAllItems() : Item[]{
         return [...this.items];
+    }
+
+    getUserItems(name: string) : Item[]{
+        let ret: Item[] = [];
+        for(let i = 0; i<this.items.length; i++){
+            if(this.items[i].addedBy === name){
+                ret.push(this.items[i]);
+            }
+        }
+        return ret;
     }
 
     addItem(item: Item){

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Item, ItemService } from '../Services/ItemService';
+import { User, UserService } from '../Services/UserService';
 
 @Component({
   selector: 'app-post',
@@ -10,15 +11,17 @@ import { Item, ItemService } from '../Services/ItemService';
 export class PostPage implements OnInit {
   item: Item;
 
+
   constructor(
     private itemService: ItemService,
+    private userService: UserService,
     private router: Router
   ) {
     this.item = {
       
         id: '',
         name: '',
-        addedBy: 'Only User',
+        addedBy: this.userService.currentUser.name,
         dateAdded: '',
         price: 0,
         description: ""

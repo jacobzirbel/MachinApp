@@ -1,18 +1,53 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-    </ion-buttons>
-    <ion-title>
-      MachinApp
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div *ngIf="!userLoggedIn">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        MachinApp
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
-  <ion-button (click)="postItem()">
-    Add new post
-  </ion-button>
-  <ion-button (click)="toList()">
-    See List
-  </ion-button>
-</ion-content>
+
+
+    <ion-buttons *ngFor="let user of this.users">
+        <ion-button expand="full" color="danger" size="large" (click)=loginAs(user.id)>
+          login as {{user.name}} 
+        </ion-button>
+    </ion-buttons>
+    <ion-button (click)=addUser()> Add User </ion-button>
+
+</div>
+
+<div *ngIf="userLoggedIn">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+      </ion-buttons>
+      <ion-title>
+        MachinApp as {{this.currentUser.name}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="this.currentUser.id !== '000'">
+    <ion-button (click)="postItem()">
+      Add new post
+    </ion-button><br/>
+    <ion-button (click)="toList(1)">
+        See My Posts
+      </ion-button>
+    <ion-button (click)="toList(0)">
+      See All Posts
+    </ion-button><br/><br/>
+
+    <ion-button (click)="logoutUser()">Log Out</ion-button>
+  </div>
+
+  <div *ngIf="this.currentUser.id === '000'">
+    <ion-button (click)="toList(0)">
+      See All Posts
+    </ion-button><br/><br/>
+
+    <ion-button (click)="logoutUser()">Log In</ion-button>
+  </div>
+</div>

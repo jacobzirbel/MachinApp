@@ -21,16 +21,25 @@ const routes: Routes = [
       {
         path: ':itemId',
         loadChildren: './list/item-detail/item-detail.module#ItemDetailPageModule'
-      }
+      },
     ]    
   },
+
   {
     path: 'post',
     loadChildren: './post/post.module#PostPageModule'
   },
   {
+    path: 'user-items',
+    loadChildren: './user-items/user-items.module#UserItemsPageModule'
+  },
+  {
     path: 'post',
     loadChildren: () => import('./post/post.module').then( m => m.PostPageModule)
+  },
+  {
+    path: 'user-items',
+    loadChildren: () => import('./user-items/user-items.module').then( m => m.UserItemsPageModule)
   }
 ];
 
